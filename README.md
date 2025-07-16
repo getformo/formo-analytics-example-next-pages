@@ -1,6 +1,13 @@
-# **Next.js + Rainbowkit + SIWE + shadcn Template**
+# 🏗 Formo Analytics Next.js Pages Router Example
 
-Live Demo: [https://next-web3-template-umber.vercel.app/](https://next-web3-template-umber.vercel.app/)
+[Documentation](https://help.formo.so) |
+[Website](https://formo.so)
+
+This is a working example of a Next.js app using Formo Analytics.
+
+---
+
+## Built with next-web3-template (by CJskii)
 
 A **Next.js** Web3 project template, powered by **TypeScript**, **RainbowKit**, **Wagmi**, **Shadcn**, and **TailwindCSS**. This template is designed to streamline the creation of Web3 applications with **SIWE (Sign-In With Ethereum)** authentication, a theme toggler, and modern design patterns.
 
@@ -162,6 +169,8 @@ next-web3-template/
 │   │   ├── _app.tsx       # Next.js custom App component
 │   │   ├── 404.tsx        # 404 page
 │   │   └── index.tsx      # Homepage
+│   ├── providers/         # React context providers
+│   │   └── AnalyticsProvider.tsx
 │   ├── styles/            # Global and module styles
 │   │   └── globals.css
 │   └── wagmi.ts           # Wagmi configuration for Web3
