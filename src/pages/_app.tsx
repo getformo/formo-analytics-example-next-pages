@@ -17,6 +17,7 @@ import { config } from "../wagmi";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navigation/navbar";
 import { Footer } from "@/components/footer";
+import AnalyticsProvider from "@/providers/AnalyticsProvider";
 
 const client = new QueryClient();
 
@@ -34,28 +35,30 @@ export const monsterrat = Montserrat({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <WagmiProvider config={config}>
-      <SessionProvider session={pageProps.session}>
-        <QueryClientProvider client={client}>
-          <RainbowKitSiweNextAuthProvider
-            getSiweMessageOptions={getSiweMessageOptions}
-          >
-            <RainbowKitProvider>
-              <ThemeProvider
-                attribute="class"
-                defaultTheme="system"
-                enableSystem
-                disableTransitionOnChange
-              >
-                <Layout>
-                  <Component {...pageProps} />
-                </Layout>
-              </ThemeProvider>
-            </RainbowKitProvider>
-          </RainbowKitSiweNextAuthProvider>
-        </QueryClientProvider>
-      </SessionProvider>
-    </WagmiProvider>
+    <AnalyticsProvider writeKey="YOUR_WRITE_KEY">
+      <WagmiProvider config={config}>
+        <SessionProvider session={pageProps.session}>
+          <QueryClientProvider client={client}>
+            <RainbowKitSiweNextAuthProvider
+              getSiweMessageOptions={getSiweMessageOptions}
+            >
+              <RainbowKitProvider>
+                <ThemeProvider
+                  attribute="class"
+                  defaultTheme="system"
+                  enableSystem
+                  disableTransitionOnChange
+                >
+                  <Layout>
+                    <Component {...pageProps} />
+                  </Layout>
+                </ThemeProvider>
+              </RainbowKitProvider>
+            </RainbowKitSiweNextAuthProvider>
+          </QueryClientProvider>
+        </SessionProvider>
+      </WagmiProvider>
+    </AnalyticsProvider>
   );
 }
 
