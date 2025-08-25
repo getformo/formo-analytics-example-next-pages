@@ -11,7 +11,17 @@ export const AnalyticsProvider: FC<FormoAnalyticsProviderProps> = ({
   children,
 }) => {
   return (
-    <FormoAnalyticsProvider writeKey={writeKey} options={{ tracking: true }}>
+    <FormoAnalyticsProvider
+      writeKey={writeKey}
+      options={{
+        tracking: true,
+        flushInterval: 500 * 10, // 5 secs
+        logger: {
+          enabled: true,
+          levels: ["debug", "info", "error", "warn", "trace"],
+        },
+      }}
+    >
       {children}
     </FormoAnalyticsProvider>
   );
